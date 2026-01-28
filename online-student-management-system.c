@@ -36,13 +36,13 @@ Quiz_s quiz_details[MAX_QUIZES];
 } User_s;
 
 void saveToFile(User_s users[], unsigned int user_quantity, unsigned int quiz_quantity){
-FILE *saveFile = fopen("saveToFileFuncCall.bin", "wb"); // fresh in every fucking shitty motherfucking function call
+FILE *saveFile = fopen("saveToFileFuncCall.bin", "wb");
 if (saveFile == NULL){
 perror("Failed to Open File");
 return;
 }
-//fwrite(shittowrite, sizeofshit, quantityofshit, wheretowriteshit);
-//fread(shittoputtheshitin, sizeofshitread, quantityofshitread, wheretoreadshit);
+//fwrite(*datatowrite, sizeofdata, quantityofdata, wheretowritedata);
+//fread(*datatoread, sizeofdatatoread, quantityofdatatoread, wheretoreadthedata);
 size_t uqb = fwrite(&user_quantity, sizeof(unsigned int), 1, saveFile);
 size_t qqb = fwrite(&quiz_quantity, sizeof(unsigned int), 1, saveFile);
 size_t aqb = fwrite(users, sizeof(User_s), user_quantity, saveFile);  // suppose 4 * 20. 80 bytes in total. 80/4 = 20 bytes each element.
